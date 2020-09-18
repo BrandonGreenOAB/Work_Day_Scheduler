@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  background-color: beige;
 }
 
 .textarea{
@@ -18,7 +19,7 @@ body {
   background-color: transparent;
   color: black;
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 10px solid #06AED5;
 }
 
 .description{
@@ -32,7 +33,7 @@ body {
 
 .row {
   white-space: pre-wrap;
-  height: 80px;
+  height: 95px;
   border-top: 1px solid white;;
 }
 
@@ -43,6 +44,7 @@ body {
   border-bottom: 1px dashed #000000;
   border-right: 1px dashed #000000;
   border-radius: 5px;
+  background-color: beige;
 }
 
 .past {
@@ -66,9 +68,10 @@ body {
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
+  border-style: groove;
 }
 
 .saveBtn i:hover {
-  font-size: 20px;
-  transition: all .3s ease-in-out;
+  font-size: 40px;
+  transition: all .2s ease-in-out;
 }

@@ -43,6 +43,7 @@ function compareTime (){
 }
 
 $(".saveBtn").on("click", function(e){
+
     var value = $(this).siblings(".description").val();
     console.log(value)
     var time =$(this).siblings(".description").attr("class").split(" ")[2];
@@ -51,8 +52,15 @@ $(".saveBtn").on("click", function(e){
 
 });
 
-
+$(".time-block-9").val(localStorage.getItem("time-block-9"))
+$(".time-block-10").val(localStorage.getItem("time-block-10"))
+$(".time-block-11").val(localStorage.getItem("time-block-11"))
+$(".time-block-12").val(localStorage.getItem("time-block-12"))
+$(".time-block-13").val(localStorage.getItem("time-block-13"))
+$(".time-block-14").val(localStorage.getItem("time-block-14"))
 $(".time-block-15").val(localStorage.getItem("time-block-15"))
+$(".time-block-16").val(localStorage.getItem("time-block-16"))
+$(".time-block-17").val(localStorage.getItem("time-block-17"))
 
 
 compareTime();
