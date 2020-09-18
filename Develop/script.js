@@ -8,6 +8,9 @@ valTime = parseInt(currTime);
 
 // console.log($(".time-block-2").data("value"))
 
+
+// ;
+
 function compareTime (){
 
     $(".color").each (function() {
@@ -15,8 +18,9 @@ function compareTime (){
         var timeBlock = $(this).attr("id");
 
 
-         console.log(timeBlock);
-        // console.log(valTime)
+        console.log(timeBlock);
+        console.log(valTime);
+
         if (timeBlock < valTime) {
 
             $(this).addClass("past");
@@ -30,17 +34,23 @@ function compareTime (){
         }
         else if (timeBlock > valTime) {
 
-            $(this).removeClass("past");
-
             $(this).removeClass("present");
 
             $(this).addClass("future");
+
         }
-
-
-        
     });
 }
+
+//set for loop to target time block numbers in order to get localStorage
+for (let i = 9; i < 18; i++) {
+
+    //set index to start at 9 so it would target .time-block-9 through 17
+    $(".time-block-" + i).val(localStorage.getItem("time-block-"+ i));
+    //used template and added index to the end of the class name
+
+    }
+
 
 $(".saveBtn").on("click", function(e){
 
@@ -52,15 +62,5 @@ $(".saveBtn").on("click", function(e){
 
 });
 
-$(".time-block-9").val(localStorage.getItem("time-block-9"))
-$(".time-block-10").val(localStorage.getItem("time-block-10"))
-$(".time-block-11").val(localStorage.getItem("time-block-11"))
-$(".time-block-12").val(localStorage.getItem("time-block-12"))
-$(".time-block-13").val(localStorage.getItem("time-block-13"))
-$(".time-block-14").val(localStorage.getItem("time-block-14"))
-$(".time-block-15").val(localStorage.getItem("time-block-15"))
-$(".time-block-16").val(localStorage.getItem("time-block-16"))
-$(".time-block-17").val(localStorage.getItem("time-block-17"))
-
-
+//calling compareTime function in order to color the rows
 compareTime();
