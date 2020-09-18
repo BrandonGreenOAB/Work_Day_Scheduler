@@ -1,131 +1,58 @@
 $("#currentDay").append(moment().format("dddd, MMMM Do h:mm:ss a"))
 
-var timeblk1 = $(".time-block-1").val()
+currTime = moment().format("HH");
 
-console.log(timeblk1)
+valTime = parseInt(currTime);
 
-function compareTimes() {
+// console.log(valTime);
 
-    if ($(".time-block-1").val() < moment().format("h")) {
+// console.log($(".time-block-2").data("value"))
 
-        $(".time-block-1").addClass("class past");
-    }
-    if ($(".time-block-1").val() > moment().format("h")) {
+function compareTime (){
 
-        $(".time-block-1").addClass("class future");
-    }
-    if ($(".time-block-1").val() === moment().format("h")) {
+    $(".color").each (function() {
 
-        $(".time-block-1").addClass("class present");
-    }
+        var timeBlock = $(this).attr("id");
 
-    //
 
-    if ($(".time-block-2").val() < moment().format("HH")) {
+         console.log(timeBlock);
+        // console.log(valTime)
+        if (timeBlock < valTime) {
 
-        $(".time-block-2").addClass("class past")
-    }
-    if ($(".time-block-2").val() > moment().format("HH")) {
+            $(this).addClass("past");
+        }
+        else if (timeBlock === valTime){
 
-        $(".time-block-2").addClass("class future")
-    }
-    if ($(".time-block-1").val() === moment().format("H")) {
-        $(".time-block-2").addClass("class present")
-    }
+        $(this).removeClass("past");
 
-    //
+        $(this).addClass("present");
 
-    if ($(".time-block-3").val() < moment().format("HH")) {
+        }
+        else if (timeBlock > valTime) {
 
-        $(".time-block-3").addClass("class past")
-    }
-    if ($(".time-block-3").val() > moment().format("HH")) {
+            $(this).removeClass("past");
 
-        $(".time-block-3").addClass("class future")
-    }
-    if ($(".time-block-1").val() === moment().format("HH")) {
-        $(".time-block-3").addClass("class present")
-    }
+            $(this).removeClass("present");
 
-    //
+            $(this).addClass("future");
+        }
 
-    if ($(".time-block-4").val() < moment().format("HH")) {
 
-        $(".time-block-4").addClass("class past")
-    }
-    if ($(".time-block-4").val() > moment().format("HH")) {
-
-        $(".time-block-4").addClass("class future")
-    }
-    if ($(".time-block-1").val() === moment().format("HH")) {
-        $(".time-block-4").addClass("class present")
-    }
-
-    //
-
-    if ($(".time-block-5").val() < moment().format("HH")) {
-
-        $(".time-block-5").addClass("class past")
-    }
-    if ($(".time-block-5").val() > moment().format("h")) {
-
-        $(".time-block-5").addClass("class future")
-    }
-    if ($(".time-block-1").val() == moment().format("h")) {
-        $(".time-block-5").addClass("class present")
-    }
-
-    if ($(".time-block-6").val() < moment().format("h")) {
-
-        $(".time-block-6").addClass("class past")
-    }
-    if ($(".time-block-6").val() > moment().format("h")) {
-
-        $(".time-block-6").addClass("class future")
-    }
-    else {
-        $(".time-block-6").addClass("class present")
-    }
-
-    if ($(".time-block-7").val() < moment().format("h")) {
-
-        $(".time-block-7").addClass("class past")
-    }
-    if ($(".time-block-7").val() > moment().format("h")) {
-
-        $(".time-block-7").addClass("class future")
-    }
-    else {
-        $(".time-block-7").addClass("class present")
-    }
-
-    if ($(".time-block-8").val() < moment().format("h")) {
-
-        $(".time-block-8").addClass("class past")
-    }
-    if ($(".time-block-8").val() > moment().format("h")) {
-
-        $(".time-block-8").addClass("class future")
-    }
-    else {
-        $(".time-block-8").addClass("class present")
-    }
-
-    if ($(".time-block-9").val() < moment().format("h")) {
-
-        $(".time-block-9").addClass("class past")
-    }
-    if ($(".time-block-9").val() > moment().format("h")) {
-
-        $(".time-block-9").addClass("class future")
-    }
-    else {
-        $(".time-block-9").addClass("class present")
-    }
-
-    
-
-    
+        
+    });
 }
 
-compareTimes();
+$(".saveBtn").on("click", function(e){
+    var value = $(this).siblings(".description").val();
+    console.log(value)
+    var time =$(this).siblings(".description").attr("class").split(" ")[2];
+//console.log($(this).siblings(".description").attr("class").split(" ")[2])
+    localStorage.setItem(time, value); 
+
+});
+
+
+$(".time-block-15").val(localStorage.getItem("time-block-15"))
+
+
+compareTime();
