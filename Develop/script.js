@@ -13,9 +13,9 @@ valTime = parseInt(currTime);
 
 function compareTime (){
 
-    $(".color").each (function() {
+    $(".color").each(function() {
 
-        var timeBlock = $(this).attr("id");
+        var timeBlock = parseInt($(this).attr("id"));
 
 
         console.log(timeBlock);
@@ -37,7 +37,6 @@ function compareTime (){
             $(this).removeClass("present");
 
             $(this).addClass("future");
-
         }
     });
 }
