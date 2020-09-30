@@ -4,13 +4,6 @@ currTime = moment().format("HH");
 
 valTime = parseInt(currTime);
 
-// console.log(valTime);
-
-// console.log($(".time-block-2").data("value"))
-
-
-// ;
-
 function compareTime (){
 
     $(".color").each(function() {
